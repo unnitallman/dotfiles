@@ -1,13 +1,10 @@
-if [[ -n $SSH_CONNECTION ]]; then
-  export PS1='%m:%3~$(git_info_for_prompt)%# '
-else
-  export PS1='%3~$(git_info_for_prompt)%# '
-fi
+autoload colors; colors;
 
 export EDITOR='mate -w'
 export PATH="~/bin:/usr/local/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:/opt/local/bin:/opt/local/sbin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 export LSCOLORS="ExFxCxDxBxEgEdabagacad"
+export PAGER='less'
 
 fpath=(~/.zsh/functions $fpath)
 
@@ -17,6 +14,11 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
 REPORTTIME=10 # print elapsed time when more than 10 seconds
+
+GIT_PROMPT_PREFIX=" %{$fg_bold[grey]%}["
+GIT_PROMPT_SUFFIX="%{$reset_color%}%{$fg_bold[grey]%}]%{$reset_color%}"
+GIT_PROMPT_DIRTY="%{$reset_color%}%{$fg[red]%} •"
+GIT_PROMPT_CLEAN=""
 
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP
@@ -38,6 +40,7 @@ setopt HIST_REDUCE_BLANKS
 
 zle -N newtab
 
+bindkey '^D' logout
 bindkey '^[^[[D' backward-word
 bindkey '^[^[[C' forward-word
 bindkey '^[[5D' beginning-of-line

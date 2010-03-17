@@ -1,5 +1,9 @@
 # cd
 alias ..='cd ..'
+alias ...='cd ../..'
+alias -- -='cd -'
+alias pu='pushd'
+alias po='popd'
 
 # ls
 alias ls="ls -F"
@@ -32,6 +36,7 @@ alias migrate='rake db:migrate db:test:clone'
 alias remigrate='rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare'
 alias rst='touch tmp/restart.txt'
 alias cuc="cucumber -r features"
+alias devlog='tail -f log/development.log'
 
 # commands starting with % for pasting from web
 alias %=' '
