@@ -3,11 +3,12 @@ alias ..='cd ..'
 
 # ls
 alias ls="ls -F"
-alias l="ls -lAh"
-alias ll="ls -l"
+alias l="ls -lAhG"
+alias ll="ls -lahG"
 alias la='ls -A'
 
 # git
+alias g='git'
 alias gl='git pull'
 alias gp='git push'
 alias gd='git diff'
@@ -17,6 +18,8 @@ alias gco='git checkout'
 alias gb='git branch'
 alias gs='git status'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+alias gsub='git submodule init && git submodule update'
+alias gadd='git add -u && git add . && git status'
 
 # rails
 alias sc='script/console'
@@ -26,7 +29,9 @@ alias a='autotest -rails'
 alias tlog='tail -f log/development.log'
 alias scaffold='script/generate nifty_scaffold'
 alias migrate='rake db:migrate db:test:clone'
+alias remigrate='rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare'
 alias rst='touch tmp/restart.txt'
+alias cuc="cucumber -r features"
 
 # commands starting with % for pasting from web
 alias %=' '

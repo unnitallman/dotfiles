@@ -51,4 +51,31 @@ def paste
   `pbpaste`
 end
 
+def ls  
+  %x{ls}.split("\n")  
+end  
+  
+def cd(dir)  
+  Dir.chdir(dir)  
+  Dir.pwd  
+end  
+  
+def pwd  
+  Dir.pwd  
+end
+
+def rl(file_name = nil)  
+  if file_name.nil?  
+    if !@recent.nil?  
+      rl(@recent)   
+    else  
+      puts "No recent file to reload"  
+    end  
+  else  
+    file_name += '.rb' unless file_name =~ /\.rb/  
+    @recent = file_name   
+    load "#{file_name}"  
+  end  
+end
+
 load File.dirname(__FILE__) + '/.railsrc' if $0 == 'irb' && ENV['RAILS_ENV']
