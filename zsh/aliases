@@ -6,7 +6,7 @@ alias pu='pushd'
 alias po='popd'
 
 # ls
-alias ls="ls -F"
+alias ls="ls -F --color=auto"
 alias l="ls -lAhG"
 alias ll="ls -lahG"
 alias la='ls -A'
@@ -40,3 +40,6 @@ alias devlog='tail -f log/development.log'
 
 # commands starting with % for pasting from web
 alias %=' '
+
+# custom
+alias c="clear"
