@@ -1,0 +1,1 @@
+if [[ -s /home/mitkok/.rvm/scripts/rvm ]] ; then source /home/mitkok/.rvm/scripts/rvm ; fi

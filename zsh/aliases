@@ -26,6 +26,7 @@ alias gsub='git submodule init && git submodule update'
 alias gadd='git add -u && git add . && git status'
 
 # rails
+alias r="rails"
 alias sc='script/console'
 alias ss='script/server'
 alias sg='script/generate'
@@ -43,3 +44,5 @@ alias %=' '
 
 # custom
 alias c="clear"
+alias e="emacsclient -c"
+alias node-repl="rlwrap node-repl"
